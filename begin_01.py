@@ -2,6 +2,12 @@
 # Python basics
 # ============================================================
 
+import pandas as pd
+import polars as pl
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+
+
 print("\n========== PYTHON FUNCTIONS ==========\n")
 
 
@@ -10,8 +16,8 @@ def hello(name):
     print("hello world " + name)
 
 
-# Call the function and pass user input as the argument.
-hello(input("Enter Name: "))
+## Call the function and pass user input as the argument.
+# hello(input("Enter Name: "))
 
 
 # Define a function without parameters.
@@ -21,8 +27,8 @@ def hello1():
     print("hello world " + name)
 
 
-# Call the function.
-hello1()
+## Call the function.
+# hello1()
 
 
 # ============================================================
@@ -30,11 +36,6 @@ hello1()
 # ============================================================
 
 print("\n========== IMPORTS ==========\n")
-
-import pandas as pd
-import polars as pl
-import matplotlib as mpl
-import matplotlib.pyplot as plt
 
 
 # ============================================================
@@ -454,8 +455,9 @@ print(type(age_series))
 check_bool_vectors = age_series[age_series > age_series.mean()]
 print(check_bool_vectors)
 
-manual_bool_value = [True, False]
-print(age_series[manual_bool_value])
+check_age_mean = age_series.mean()
+print(check_age_mean)
 
-for manual in manual_bool_value:
-    print(age_series[manual])
+bmi_series = df["bmi"]
+age_bmi_concat = pd.concat([age_series, bmi_series])
+print(age_bmi_concat)
